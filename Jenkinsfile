@@ -52,13 +52,14 @@ pipeline {
 				}
 			}
 		}
-		stage("push Docker Image")
+		stage("push Docker Image"){
 			steps{
 				docker.withRegistry('','dockerhub'){
 					dockerImage.push()
 					dockerImage.push('latest')
 				}
 			}
+		}
     }
     post {
         always {
