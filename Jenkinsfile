@@ -4,8 +4,11 @@ pipeline {
 			stage('Build') {
 				steps {
 					echo 'Build'
-					echo 'Test'
-					echo 'Integration Test'
+				}
+				post {
+					always {
+						echo 'I run at the end of the build stage'
+					}
 				}
 		}
 		stage('Test') {
